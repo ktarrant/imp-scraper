@@ -58,7 +58,7 @@ def find_event_entries(soup):
 
 def load_imp_data():
     with urllib.request.urlopen(IMP_URL) as urlobj:
-        soup = BeautifulSoup(urlobj.read())
+        soup = BeautifulSoup(urlobj.read(), "html.parser")
 
     df = pd.DataFrame(find_event_entries(soup))
 
